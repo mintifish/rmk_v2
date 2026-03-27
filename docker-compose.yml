@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=rmk_admin
+      - POSTGRES_PASSWORD=taborniki_pass
+      - POSTGRES_DB=rmk_db
+    ports:
+      - "5432:5432"

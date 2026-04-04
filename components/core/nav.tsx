@@ -11,8 +11,7 @@ export function Nav() {
             className="h-14 w-auto sm:h-16"
           />
           <h1
-            className="font-heading text-xl font-black tracking-tight sm:text-2xl lg:text-3xl"
-            style={{ color: "var(--header-text)" }}
+            className="font-heading text-xl font-black tracking-tight sm:text-2xl lg:text-3xl text-[#5e1c0b]"
           >
             ROD MLINSKIH KAMNOV
           </h1>

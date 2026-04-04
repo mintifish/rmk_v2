@@ -16,7 +16,7 @@ export function TerminiDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button size="lg" variant="default" className="shrink-0 bg-[#572111] text-white shadow-sm hover:bg-[#6b2a16]">
+        <Button size="lg" variant="default" className="shrink-0 bg-[#5e1c0b] text-white shadow-sm hover:bg-[#703c14] hover:border hover:border-[#703c14]">
           <Calendar className="mr-2 h-5 w-5" /> Termini po razredih
         </Button>
       </DialogTrigger>

@@ -8,7 +8,7 @@ export function NavDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button size="lg" variant="default" className="shrink-0 bg-[#572111] px-6 py-6 text-base font-semibold text-white shadow-sm hover:bg-[#6b2a16]">
+        <Button size="lg" variant="default" className="shrink-0 bg-[#5e1c0b] px-6 py-6 text-base font-semibold text-white shadow-sm hover:bg-[#703c14]">
           Prijavnice <ChevronDown className="ml-2 h-4 w-4" />
         </Button>
       </DropdownMenuTrigger>

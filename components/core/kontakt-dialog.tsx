@@ -9,7 +9,7 @@ export function KontaktDialog() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button size="lg" variant="secondary" className="shadow-sm hover:bg-white hover:text-[#572111] hover:border hover:border-[#572111]">
+                <Button size="lg" variant="secondary" className="h-14 w-64 justify-center px-8 text-base shadow-sm hover:border hover:border-primary/70 hover:bg-background hover:text-primary">
                     <Phone className="mr-2 h-5 w-5" /> Kontakt
                 </Button>
             </DialogTrigger>

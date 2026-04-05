@@ -38,8 +38,8 @@ export function TaborCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="-left-12 h-8 w-8 border border-slate-300 bg-[#5e1c0b] hover:bg-[#703c14] hover:text-white text-white shadow-sm" />
-      <CarouselNext className="-right-12 h-8 w-8 border border-slate-300 bg-[#5e1c0b] hover:bg-[#703c14] hover:text-white text-white shadow-sm" />
+      <CarouselPrevious className="-left-12 h-8 w-8 border border-primary/40 bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:text-primary-foreground" />
+      <CarouselNext className="-right-12 h-8 w-8 border border-primary/40 bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:text-primary-foreground" />
     </Carousel>
   );
 }

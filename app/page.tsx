@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { TerminiDialog } from "@/components/core/termini-dialog";
 import { KontaktDialog } from "@/components/core/kontakt-dialog";
-import { TaborCarousel } from "@/components/core/tabor-carousel";
+import { CampCarousel } from "@/components/core/camp-carousel";
+import { CampCountdown } from "@/components/core/camp-countdown";
+import { ArrowDown, ArrowRight } from "lucide-react";
+import { SlideIn } from "@/components/core/slide-in";
 import { FadeIn } from "@/components/core/fade-in";
-import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -35,7 +37,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-            
+
+          <ArrowDown className="absolute size-8 bottom-30 left-1/2 -translate-x-1/2 animate-bounce text-white" />
         </section>
 
         {/* DODATNA SEKCIJA (Galerija) */}
@@ -45,17 +48,29 @@ export default function Home() {
             Tabor 2025
           </h3>
           <h2 className="mx-auto mb-5 max-w-3xl text-lg font-normal leading-relaxed text-slate-600 sm:text-xl">
-            Premaknite se v galerijo in si oglejte utrinke z našega zadnjega tabora!
+            Premaknite se v galerijo in si oglejte utrinke z našega zadnjega
+            tabora!
           </h2>
-          <Link href="/galerija" className="mb-5 inline-flex h-14 items-center gap-2 rounded-lg border border-primary/40 bg-primary px-8 text-base font-medium text-primary-foreground shadow-sm hover:bg-primary/90 hover:text-primary-foreground">
+          <Link
+            href="/galerija"
+            className="mb-5 inline-flex h-14 items-center gap-2 rounded-lg border border-primary/40 bg-primary px-8 text-base font-medium text-primary-foreground shadow-sm hover:bg-primary/90 hover:text-primary-foreground"
+          >
             Oglej galerijo
             <ArrowRight className="h-5 w-5" />
           </Link>
           <div className="mx-auto w-full max-w-[1000rem] px-4 sm:px-6 lg:px-8">
-            <TaborCarousel />
+            <CampCarousel />
           </div>
         </div>
         </FadeIn>
+        {/* ODŠTEVALNIK DO TABORA */}
+        <div className="pt-40 pb-20">
+          <FadeIn>
+            <SlideIn direction="left" delay={0.2}>
+              <CampCountdown />
+            </SlideIn>
+          </FadeIn>
+        </div>
       </main>
     </>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import Autoplay from "embla-carousel-autoplay";
-import { taborImages } from "@/lib/tabor-images";
+import { campImages } from "@/lib/camp-images";
 import {
   Carousel,
   CarouselContent,
@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
 
-export function TaborCarousel() {
+export function CampCarousel() {
   return (
     <Carousel
       className="relative"
@@ -19,7 +19,7 @@ export function TaborCarousel() {
       plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]}
     >
       <CarouselContent className="gap-2 pb-5 py-2">
-        {taborImages.map((img) => (
+        {campImages.map((img) => (
           <CarouselItem
             key={img.image}
             className="basis-3/5 sm:basis-1/2 lg:basis-4/9"
@@ -30,7 +30,8 @@ export function TaborCarousel() {
               className={cn(
                 "aspect-4/3 object-cover rounded-2xl",
                 "hover:scale-[1.02] transition-transform duration-300",
-                "shadow-black shadow-lg",
+                "shadow-black shadow-2xl",
+                "border-4 border-border"
               )}
               style={{
                 objectPosition: `${img.offsetX}% ${img.offsetY}%`,

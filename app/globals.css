@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -35,6 +36,7 @@
   --sidebar-accent-foreground: oklch(0.3787 0.0427 54.7263);
   --sidebar-border: oklch(0.8671 0.0174 61.9261);
   --sidebar-ring: oklch(0.3787 0.0427 54.7263);
+
   --font-sans: Inter, system-ui, sans-serif;
   --font-serif: Merriweather, Georgia, serif;
   --font-mono: JetBrains Mono, monospace;

@@ -1,5 +1,4 @@
 "use client";
-import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { ReactNode } from "react";
 
@@ -31,7 +30,7 @@ export function SlideIn({
         animate={directionVariants.center}
         exit={directionVariants[direction]}
         transition={{ duration: 0.6, delay }}
-        className={cn(className)}
+        className={className}
       >
         {children}
       </motion.div>

@@ -30,10 +30,10 @@ export function NavDropdown() {
           <Button
             size="lg"
             variant="default"
-            className="shrink-0 bg-primary px-6 py-6 text-base font-semibold text-primary-foreground shadow-sm hover:bg-primary/90"
+            className="px-6 py-6 text-base font-semibold shrink-0 bg-primary text-primary-foreground shadow-sm hover:bg-primary/90"
             onClick={(e) => e.preventDefault()}
           >
-            Prijavnice <ChevronDown className="ml-2 h-4 w-4" />
+            Prijavnice <ChevronDown className="w-4 h-4 ml-2" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent

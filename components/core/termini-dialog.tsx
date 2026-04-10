@@ -9,10 +9,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { terminiData } from "@/lib/termini-data";
-import { Calendar } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
+import { cn } from "@/lib/utils";
+import { Calendar, Phone, Mail, DoorOpen } from "lucide-react";
+import { Avatar, AvatarImage } from "../ui/avatar";
 
 function getStripeStyle(
   stripeA: string,
@@ -52,55 +52,73 @@ export function TerminiDialog() {
           {terminiData.map((entry) => (
             <div
               key={entry.title}
-              className="relative overflow-hidden bg-white border shadow-sm rounded-xl"
+              className="relative overflow-hidden bg-white border shadow-sm rounded-xl px-6 py-5 flex flex-col gap-4"
             >
-              <div
-                className="absolute inset-y-0 left-0 w-4"
-                style={getStripeStyle(
-                  entry.stripeA,
-                  entry.stripeB,
-                  entry.gapA,
-                  entry.gapB,
-                )}
-              />
-              <div
-                className="absolute inset-y-0 right-0 w-4"
-                style={getStripeStyle(
-                  entry.stripeA,
-                  entry.stripeB,
-                  entry.gapA,
-                  entry.gapB,
-                )}
-              />
-              <div className="px-8 py-6">
-                <h3 className="text-2xl font-black text-center font-heading text-slate-900">
+              <div className="flex items-center gap-4">
+                <div
+                  className="size-12 rounded-xl flex items-center justify-center text-white font-bold text-3xl bg-primary z-20 relative"
+                  style={getStripeStyle(
+                    entry.stripeA,
+                    entry.stripeB,
+                    entry.gapA,
+                    entry.gapB,
+                  )}
+                >
+                  <span className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                    {entry.grade}
+                  </span>
+                </div>
+                <h3 className="text-3xl text-primary font-bold">
                   {entry.title}
                 </h3>
-                <div className="max-w-md mx-auto mt-4 space-y-2 text-lg text-center text-slate-700">
-                  <p>
-                    <span className="font-semibold text-slate-900">
-                      Vodnik:
-                    </span>{" "}
-                    {entry.vodnik}
-                  </p>
-                  <p>
-                    <span className="font-semibold text-slate-900">Kdaj:</span>{" "}
-                    {entry.cas}
-                  </p>
-                  <p>
-                    <span className="font-semibold text-slate-900">
-                      Razred:
-                    </span>{" "}
-                    {entry.razred}
-                  </p>
-                  <p>
-                    <span className="font-semibold text-slate-900">
-                      Telefonska številka:
-                    </span>{" "}
-                    {entry.phone}
-                  </p>
+              </div>
+              <div className="flex flex-col gap-2 pl-3">
+                <div className="flex items-center">
+                  <Phone className="w-5 h-5 mr-3" />
+                  <a href={`tel:0038640505268`}>040 505 268</a>
+                </div>
+                <div className="flex items-center">
+                  <Calendar className="w-5 h-5 mr-3" />
+                  <span>{entry.cas}</span>
+                </div>
+                <div className="flex items-center">
+                  <DoorOpen className="w-5 h-5 mr-3" />
+                  <span>{entry.classroom}</span>
+                </div>
+                <div className="flex items-center">
+                  <Avatar size="sm" className="mr-3">
+                    <AvatarImage src="/images/tabor2025/1.jpg" />
+                  </Avatar>
+                  <span>{entry.classroom}</span>
                 </div>
               </div>
+              {/* <h3 className="text-2xl font-black text-center font-heading text-slate-900"> */}
+              {/*   {entry.title} */}
+              {/* </h3> */}
+              {/* <div className="max-w-md mx-auto mt-4 space-y-2 text-lg text-center text-slate-700"> */}
+              {/*   <p> */}
+              {/*     <span className="font-semibold text-slate-900"> */}
+              {/*       Vodnik: */}
+              {/*     </span>{" "} */}
+              {/*     {entry.vodnik} */}
+              {/*   </p> */}
+              {/*   <p> */}
+              {/*     <span className="font-semibold text-slate-900">Kdaj:</span>{" "} */}
+              {/*     {entry.cas} */}
+              {/*   </p> */}
+              {/*   <p> */}
+              {/*     <span className="font-semibold text-slate-900"> */}
+              {/*       Razred: */}
+              {/*     </span>{" "} */}
+              {/*     {entry.classroom} */}
+              {/*   </p> */}
+              {/*   <p> */}
+              {/*     <span className="font-semibold text-slate-900"> */}
+              {/*       Telefonska številka: */}
+              {/*     </span>{" "} */}
+              {/*     {entry.phone} */}
+              {/*   </p> */}
+              {/* </div> */}
             </div>
           ))}
         </div>

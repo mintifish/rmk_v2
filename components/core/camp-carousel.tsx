@@ -21,7 +21,7 @@ export function CampCarousel() {
         {campImages.map((img) => (
           <CarouselItem
             key={img.image}
-            className="basis-3/5 sm:basis-1/2 lg:basis-4/9"
+            className="basis-1/2 sm:basis-1/3 lg:basis-4/9"
           >
             <img
               src={img.image}
@@ -34,12 +34,6 @@ export function CampCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious
-        className="w-8 h-8 border -left-12 border-primary/40 bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:text-primary-foreground"
-      />
-      <CarouselNext
-        className="w-8 h-8 border -right-12 border-primary/40 bg-primary text-primary-foreground shadow-sm hover:bg-primary/90 hover:text-primary-foreground"
-      />
     </Carousel>
   );
 }

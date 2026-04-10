@@ -16,7 +16,7 @@ export default function Home() {
       <main>
         <section className="relative min-h-screen overflow-hidden">
           <Image
-            className="absolute inset-0 h-full w-full scale-[1.04] object-cover blur-[2px]"
+            className="absolute inset-0 h-full w-full object-cover blur-[2px]"
             src="/images/hero-image.jpg"
             alt="Hero Image"
             fill
@@ -69,9 +69,9 @@ export default function Home() {
               Oglej galerijo
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <div className="mx-auto w-full max-w-[1000rem] px-4 sm:px-6 lg:px-8">
-              <CampCarousel />
-            </div>
+          </div>
+          <div className="w-full">
+            <CampCarousel />
           </div>
         </FadeIn>
 
@@ -103,10 +103,16 @@ export default function Home() {
             <h3 className="text-2xl font-black text-left text-black text-white font-heading">
               Kontakt:
             </h3>
-            <a href="mailto:rmkrad@gmail.com" className="text-white transition-colors hover:underline">
+            <a
+              href="mailto:rmkrad@gmail.com"
+              className="text-white transition-colors hover:underline"
+            >
               Email: rmkrad@gmail.com
             </a>
-            <a href="tel:+38670366357" className="text-white transition-colors hover:underline">
+            <a
+              href="tel:+38670366357"
+              className="text-white transition-colors hover:underline"
+            >
               Telefon: +386 70 366 357
             </a>
           </div>

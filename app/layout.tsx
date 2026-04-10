@@ -38,7 +38,7 @@ export default function RootLayout({
       <head>
         <title>RMK</title>
       </head>
-      <body suppressHydrationWarning className="flex flex-col min-h-screen">
+      <body suppressHydrationWarning className="flex flex-col min-h-screen overflow-x-hidden">
         <Nav />
         {children}
       </body>

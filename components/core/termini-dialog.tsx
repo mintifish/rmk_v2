@@ -9,10 +9,14 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { terminiData } from "@/lib/termini-data";
-import { cn } from "@/lib/utils";
-import { Calendar, Phone, Mail, DoorOpen } from "lucide-react";
-import { Avatar, AvatarImage } from "../ui/avatar";
+import { Calendar, Phone, DoorOpen, User } from "lucide-react";
 
 function getStripeStyle(
   stripeA: string,
@@ -40,87 +44,70 @@ export function TerminiDialog() {
 
       <DialogContent className="p-0 sm:max-w-lg max-h-[100vh] overflow-hidden border-2 border-border bg-background">
         <DialogHeader className="p-6 rounded-t-xl bg-primary text-primary-foreground">
-          <DialogTitle className="text-4xl font-bold text-center font-heading">
+          <DialogTitle className="text-3xl font-bold font-heading">
             Termini po razredih
           </DialogTitle>
-          <DialogDescription className="mt-2 text-lg text-center text-primary-foreground/90">
+          <DialogDescription className="mt-0.5 text-base text-primary-foreground/90">
             Kdaj in kje se bodo odvijali sestanki za posamezne razrede.
           </DialogDescription>
         </DialogHeader>
 
-        <div className="p-4 space-y-6 max-h-[calc(90vh-120px)] overflow-auto">
-          {terminiData.map((entry) => (
-            <div
-              key={entry.title}
-              className="relative overflow-hidden bg-white border shadow-sm rounded-xl px-6 py-5 flex flex-col gap-4"
-            >
-              <div className="flex items-center gap-4">
-                <div
-                  className="size-12 rounded-xl flex items-center justify-center text-white font-bold text-3xl bg-primary z-20 relative"
-                  style={getStripeStyle(
-                    entry.stripeA,
-                    entry.stripeB,
-                    entry.gapA,
-                    entry.gapB,
-                  )}
-                >
-                  <span className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                    {entry.grade}
-                  </span>
-                </div>
-                <h3 className="text-3xl text-primary font-bold">
-                  {entry.title}
-                </h3>
-              </div>
-              <div className="flex flex-col gap-2 pl-3">
-                <div className="flex items-center">
-                  <Phone className="w-5 h-5 mr-3" />
-                  <a href={`tel:0038640505268`}>040 505 268</a>
-                </div>
-                <div className="flex items-center">
-                  <Calendar className="w-5 h-5 mr-3" />
-                  <span>{entry.cas}</span>
-                </div>
-                <div className="flex items-center">
-                  <DoorOpen className="w-5 h-5 mr-3" />
-                  <span>{entry.classroom}</span>
-                </div>
-                <div className="flex items-center">
-                  <Avatar size="sm" className="mr-3">
-                    <AvatarImage src="/images/tabor2025/1.jpg" />
-                  </Avatar>
-                  <span>{entry.classroom}</span>
-                </div>
-              </div>
-              {/* <h3 className="text-2xl font-black text-center font-heading text-slate-900"> */}
-              {/*   {entry.title} */}
-              {/* </h3> */}
-              {/* <div className="max-w-md mx-auto mt-4 space-y-2 text-lg text-center text-slate-700"> */}
-              {/*   <p> */}
-              {/*     <span className="font-semibold text-slate-900"> */}
-              {/*       Vodnik: */}
-              {/*     </span>{" "} */}
-              {/*     {entry.vodnik} */}
-              {/*   </p> */}
-              {/*   <p> */}
-              {/*     <span className="font-semibold text-slate-900">Kdaj:</span>{" "} */}
-              {/*     {entry.cas} */}
-              {/*   </p> */}
-              {/*   <p> */}
-              {/*     <span className="font-semibold text-slate-900"> */}
-              {/*       Razred: */}
-              {/*     </span>{" "} */}
-              {/*     {entry.classroom} */}
-              {/*   </p> */}
-              {/*   <p> */}
-              {/*     <span className="font-semibold text-slate-900"> */}
-              {/*       Telefonska številka: */}
-              {/*     </span>{" "} */}
-              {/*     {entry.phone} */}
-              {/*   </p> */}
-              {/* </div> */}
-            </div>
-          ))}
+        <div className="p-4 max-h-[calc(90vh-120px)] overflow-auto">
+          <Accordion type="single" collapsible className="flex flex-col gap-3">
+            {terminiData.map((entry) => (
+              <AccordionItem
+                key={entry.title}
+                value={entry.title}
+                className="overflow-hidden bg-white border shadow-sm rounded-xl not-last:border-b-0"
+              >
+                <AccordionTrigger className="px-5 py-4 hover:no-underline gap-4 rounded-xl">
+                  <div className="flex items-center gap-4 flex-1">
+                    <div
+                      className="size-8 shrink-0 rounded-lg flex items-center justify-center text-white font-bold text-2xl"
+                      style={getStripeStyle(
+                        entry.stripeA,
+                        entry.stripeB,
+                        entry.gapA,
+                        entry.gapB,
+                      )}
+                    >
+                      <span className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+                        {entry.grade}
+                      </span>
+                    </div>
+                    <span className="text-xl text-primary font-bold">
+                      {entry.title}
+                    </span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="px-5 pb-4">
+                  <div className="flex flex-col gap-2 pl-1 pt-1 text-base">
+                    <div className="flex items-center">
+                      <Phone className="w-4 h-4 mr-3 shrink-0 text-muted-foreground" />
+                      <a
+                        href={`tel:${entry.phone.replace(/-/g, "")}`}
+                        className="hover:underline"
+                      >
+                        {entry.phone}
+                      </a>
+                    </div>
+                    <div className="flex items-center">
+                      <Calendar className="w-4 h-4 mr-3 shrink-0 text-muted-foreground" />
+                      <span>{entry.cas}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <DoorOpen className="w-4 h-4 mr-3 shrink-0 text-muted-foreground" />
+                      <span>{entry.classroom}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <User className="w-4 h-4 mr-3 shrink-0 text-muted-foreground" />
+                      <span>{entry.vodnik}</span>
+                    </div>
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </DialogContent>
     </Dialog>

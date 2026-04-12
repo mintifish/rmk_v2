@@ -18,14 +18,9 @@ import {
 import { meetingsData } from "@/lib/meetings-data";
 import { Calendar, Phone, DoorOpen, User } from "lucide-react";
 
-function getStripeStyle(
-  stripeA: string,
-  stripeB: string,
-  gapA: string,
-  gapB: string,
-) {
+function getStripeStyle(stripes: [string, string]) {
   return {
-    backgroundImage: `repeating-linear-gradient(135deg, ${stripeA} 0 ${gapA}, ${stripeB} ${gapA} calc(${gapA} + ${gapB}))`,
+    backgroundImage: `repeating-linear-gradient(135deg, var(${stripes[0]}) 0 14px, var(${stripes[1]}) 14px calc(14px + 6px))`,
   };
 }
 
@@ -42,7 +37,7 @@ export function MeetingsDialog() {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="p-0 sm:max-w-lg max-h-[100vh] overflow-hidden border-2 border-border bg-background">
+      <DialogContent className="p-0 sm:max-w-lg max-h-[100vh] overflow-hidden bg-background">
         <DialogHeader className="p-6 rounded-t-xl bg-primary text-primary-foreground">
           <DialogTitle className="text-3xl font-bold font-heading">
             Termini po razredih
@@ -64,12 +59,7 @@ export function MeetingsDialog() {
                   <div className="flex items-center gap-4 flex-1">
                     <div
                       className="size-8 shrink-0 rounded-lg flex items-center justify-center text-white font-bold text-2xl"
-                      style={getStripeStyle(
-                        entry.stripeA,
-                        entry.stripeB,
-                        entry.gapA,
-                        entry.gapB,
-                      )}
+                      style={getStripeStyle(entry.stripes)} 
                     >
                       <span className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
                         {entry.grade}

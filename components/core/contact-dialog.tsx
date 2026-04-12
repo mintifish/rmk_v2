@@ -9,10 +9,27 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { contactData } from "@/lib/contact-data";
-import { Phone, Mail } from "lucide-react";
+import { LeaderData, contactData } from "@/lib/contact-data";
+import { Mail, Phone, MapPin, IdCard, User, Banknote, ArrowDown } from "lucide-react";
+import React, { useRef, useState } from "react";
+
+const iconMap = {
+  MapPin,
+  IdCard,
+  User,
+  Banknote,
+};
 
 export function ContactDialog() {
+  const [scrolled, setScrolled] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      setScrolled(scrollRef.current.scrollTop > 0);
+    }
+  };
+
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -24,61 +41,91 @@ export function ContactDialog() {
           <Phone className="w-5 h-5 mr-2" /> Kontakt
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-auto p-0 border-2 border-border bg-background">
-        <DialogHeader className="p-6 bg-primary text-primary-foreground rounded-t-xl">
-          <DialogTitle className="text-4xl font-bold text-center font-heading">
+
+      <DialogContent className="p-0 sm:max-w-lg max-h-[100vh] overflow-hidden bg-background">
+        <DialogHeader className="p-6 rounded-t-xl bg-primary text-primary-foreground">
+          <DialogTitle className="text-3xl font-bold font-heading">
             Kontakt
           </DialogTitle>
-          <DialogDescription className="mt-2 text-lg text-center text-primary-foreground/90">
-            Kako nas lahko kontaktirate.
+          <DialogDescription className="mt-0.5 text-base text-primary-foreground/90">
+            Kako nas lahko kontaktirate ter naši podatki.
           </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-6">
-          <div className="space-y-2 bg-white border border-border rounded-2xl max-h-[calc(90vh-120px)] overflow-auto p-4 shadow-sm hover:bg-primary/10 transition-colors">
-            <h3 className="text-2xl font-black text-center font-heading text-slate-900">
-              {contactData.vodstvo.naslov}
-            </h3>
-            <div className="max-w-md mx-auto mt-4 text-lg text-center space-y-2 text-slate-700">
-              <p>
-                <span className="font-semibold text-slate-900">Nacelnik:</span>{" "}
-                {contactData.vodstvo.nacelnik.ime}
-              </p>
-              <p>
-                <span className="font-semibold text-slate-900">Email:</span>{" "}
-                {contactData.vodstvo.nacelnik.email}
-              </p>
-              <p>
-                <span className="font-semibold text-slate-900">Telefon:</span>{" "}
-                {contactData.vodstvo.nacelnik.telefon}
-              </p>
+          <div className="bg-white rounded-2xl border border-border p-6 mx-4 mt-4">
+            <span className="flex inline-flex text-2xl font-bold text-foreground gap-2">
+              <div className="rounded-xl border border-border shadow-sm maxw-w-xs mx-auto w-16 h-16 overflow-hidden">
+                <img
+                  src="/images/nacelnik.jpg"
+                  alt="Nacelnik"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex flex-col justify-center">
+                <span className="text-foreground text-base font-medium leading-tight">
+                  Nacelnik:
+                </span>
+                <span className="text-foreground text-xl font-bold text-primary">
+                  {LeaderData.description}
+                </span>
+              </div>
+            </span>
+            <div className="flex items-center text-base mt-4">
+              <Mail className="w-6 h-6 text-primary" />
+              <a
+                href={`mailto:${LeaderData.email}`}
+                className="ml-2 hover:underline"
+              >
+                {LeaderData.email}
+              </a>
+            </div>
+            <div className="flex items-center text-base mt-2">
+              <Phone className="w-6 h-6 text-primary" />
+              <a
+                href={`tel:${LeaderData.telefon.replace(/-/g, "")}`}
+                className="ml-2 underline hover:text-primary/80"
+              >
+                {LeaderData.telefon}
+              </a>
             </div>
           </div>
 
-          <div className="pb-5">
-            <div className="space-y-2 bg-white borderborder-border rounded-2xl max-h-[calc(90vh-120px)] overflow-auto p-4 hover:bg-primary/10 transition-colors">
-              <h3 className="text-2xl font-black text-center font-heading text-slate-900">
-                {contactData.ostaliPodatki.naslov}
-              </h3>
-              <div className="max-w-md mx-auto mt-4 text-lg text-center space-y-2 text-slate-700">
-                <p>
-                  <span className="font-semibold text-slate-900">
-                    Lokacija:
-                  </span>{" "}
-                  {contactData.ostaliPodatki.lokacija}
-                </p>
-                <p>
-                  <span className="font-semibold text-slate-900">
-                    Davčna številka:
-                  </span>{" "}
-                  {contactData.ostaliPodatki.davcnaStevilka}
-                </p>
-                <p>
-                  <span className="font-semibold text-slate-900">TRR:</span>{" "}
-                  {contactData.ostaliPodatki.trr}
-                </p>
-              </div>
-            </div>
+          <div
+            ref={scrollRef}
+            onScroll={handleScroll}
+            className="bg-white rounded-2xl border border-border p-6 mx-4 mb-4 max-h-[300px] overflow-y-auto"
+          >
+            <span className="text-foreground text-xl font-bold text-primary">
+              Ostali podatki
+            </span>
+              {contactData.map((item, index) => {
+                const Icon = iconMap[item.icon as keyof typeof iconMap];
+                return (
+                  <div
+                    className="flex items-start gap-4 mt-4 hover:bg-primary/10 transition-colors p-4 rounded-lg border-b border-border last:border-b-0"
+                    key={index}
+                  >
+                    {Icon && <Icon className="w-6 h-6 text-primary mt-1 shrink-0" />}
+                    <div>
+                      <span className="text-foreground text-base font-medium leading-tight">
+                        {item.title}:
+                      </span>
+                      <div className="text-primary text-lg font-semibold">
+                        {item.description}
+                      </div>
+                      {item.child && <div className="mt-2">{item.child}</div>}
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+
+          <div
+            className="flex justify-center bottom-6 z-20 transition-opacity duration-200 pb-2"
+            style={{ opacity: scrolled ? 0 : 1, pointerEvents: scrolled ? "none" : "auto" }}
+          >
+            <ArrowDown className="w-7 h-7 text-primary animate-bounce" />
           </div>
         </div>
       </DialogContent>

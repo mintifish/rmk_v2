@@ -1,6 +1,5 @@
-"use client";
-import { motion, AnimatePresence } from "framer-motion";
 import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 interface SlideInProps {
   children: ReactNode;
@@ -9,31 +8,25 @@ interface SlideInProps {
   className?: string;
 }
 
-const directionVariants = {
-  left: { x: -50, opacity: 0 },
-  right: { x: 50, opacity: 0 },
-  up: { y: -50, opacity: 0 },
-  down: { y: 50, opacity: 0 },
-  center: { x: 0, y: 0, opacity: 1 },
-};
+const directionClass = {
+  left: "slide-in-from-left",
+  right: "slide-in-from-right",
+  up: "slide-in-from-bottom",
+  down: "slide-in-from-top",
+} as const;
 
 export function SlideIn({
   children,
   direction = "up",
   delay = 0,
-  className = "",
+  className,
 }: SlideInProps) {
   return (
-    <AnimatePresence>
-      <motion.div
-        initial={directionVariants[direction]}
-        animate={directionVariants.center}
-        exit={directionVariants[direction]}
-        transition={{ duration: 0.6, delay }}
-        className={className}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <div
+      className={cn("animate-in fade-in duration-700", directionClass[direction], className)}
+      style={delay ? { animationDelay: `${delay}s` } : undefined}
+    >
+      {children}
+    </div>
   );
 }

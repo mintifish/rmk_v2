@@ -5,10 +5,7 @@ export type MeetingEntry = {
   grade: number;
   classroom: string;
   phone: string;
-  stripeA: string;
-  stripeB: string;
-  gapA: string;
-  gapB: string;
+  stripes : [string, string];
 };
 
 export const meetingsData: MeetingEntry[] = [
@@ -19,10 +16,7 @@ export const meetingsData: MeetingEntry[] = [
     grade: 2,
     classroom: "Ni še določen",
     phone: "030-732-991",
-    stripeA: "#b84040",
-    stripeB: "#d4b84a",
-    gapA: "14px",
-    gapB: "6px", 
+    stripes: ["--rutka-red","--rutka-yellow"],
   },
   {
     title: "Tretji razredi",
@@ -31,10 +25,7 @@ export const meetingsData: MeetingEntry[] = [
     grade: 3,
     classroom: "Ni še določen",
     phone: "069-604-303",
-    stripeA: "#b84040",
-    stripeB: "#d4b84a",
-    gapA: "14px",
-    gapB: "6px", 
+    stripes: ["--rutka-red","--rutka-yellow"],
   },
   {
     title: "Četrti razredi",
@@ -43,10 +34,7 @@ export const meetingsData: MeetingEntry[] = [
     grade: 4,
     classroom: "Ni še določen",
     phone: "068-687-115",
-    stripeA: "#b84040",
-    stripeB: "#d4b84a",
-    gapA: "14px",
-    gapB: "6px", 
+    stripes: ["--rutka-red","--rutka-yellow"],
   },
   {
     title: "Peti razredi",
@@ -55,10 +43,7 @@ export const meetingsData: MeetingEntry[] = [
     grade: 5,
     classroom: "Ni še določen",
     phone: "030-744-230",
-    stripeA: "#b84040",
-    stripeB: "#d4b84a",
-    gapA: "14px",
-    gapB: "6px", 
+    stripes: ["--rutka-red","--rutka-yellow"],
   },
   {
     title: "Šesti razredi",
@@ -67,10 +52,7 @@ export const meetingsData: MeetingEntry[] = [
     grade: 6,
     classroom: "Ni še določen",
     phone: "051-217-337",
-    stripeA: "#4a7a4e",
-    stripeB: "#d4b84a",
-    gapA: "14px",
-    gapB: "6px",
+    stripes: ["--rutka-green","--rutka-yellow"],
   },
   {
     title: "Sedmi razredi",
@@ -79,10 +61,7 @@ export const meetingsData: MeetingEntry[] = [
     grade: 7,
     classroom: "Ni še določen",
     phone: "030-669-031",
-    stripeA: "#4a7a4e",
-    stripeB: "#d4b84a",
-    gapA: "14px",
-    gapB: "6px",
+    stripes: ["--rutka-green","--rutka-yellow"],
   },
   {
     title: "Osmi razredi",
@@ -91,10 +70,7 @@ export const meetingsData: MeetingEntry[] = [
     grade: 8,
     classroom: "Ni še določen",
     phone: "051-755-118",
-    stripeA: "#4a7a4e",
-    stripeB: "#d4b84a",
-    gapA: "14px",
-    gapB: "6px",
+    stripes: ["--rutka-green","--rutka-yellow"],
   },
   {
     title: "Deveti razredi",
@@ -103,9 +79,6 @@ export const meetingsData: MeetingEntry[] = [
     grade: 9,
     classroom: "Ni še določen",
     phone: "070-366-357",
-    stripeA: "#4a5eb8",
-    stripeB: "#d4b84a",
-    gapA: "14px",
-    gapB: "6px",
+    stripes: ["--rutka-blue","--rutka-yellow"],
   },
 ];

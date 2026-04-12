@@ -37,10 +37,10 @@
   --sidebar-border: oklch(0.8671 0.0174 61.9261);
   --sidebar-ring: oklch(0.3787 0.0427 54.7263);
 
-  --color-rutka-red: oklch(63.502% 0.2505 28.377);
-  --color-rutka-yellow: oklch(90.669% 0.18812 99.48);
-  --color-rutka-green: oklch(60.765% 0.20369 141.863);
-  --color-rutka-blue: oklch(54.881% 0.24991 261.799);
+  --rutka-red: oklch(63.502% 0.2505 28.377);
+  --rutka-yellow: oklch(90.669% 0.18812 99.48);
+  --rutka-green: oklch(60.765% 0.20369 141.863);
+  --rutka-blue: oklch(54.881% 0.24991 261.799);
 
   --font-sans: Inter, system-ui, sans-serif;
   --font-serif: Merriweather, Georgia, serif;

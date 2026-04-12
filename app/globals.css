@@ -151,10 +151,10 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --color-rutka-red: var(--color-rutka-red);
-  --color-rutka-yellow: var(--color-rutka-yellow); 
-  --color-rutka-green: var(--color-rutka-green);
-  --color-rutka-blue: var(--color-rutka-blue);
+  --color-rutka-red: var(--rutka-red);
+  --color-rutka-yellow: var(--rutka-yellow); 
+  --color-rutka-green: var(--rutka-green);
+  --color-rutka-blue: var(--rutka-blue);
 
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);

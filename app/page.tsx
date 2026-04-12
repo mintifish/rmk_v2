@@ -1,5 +1,5 @@
-import { TerminiDialog } from "@/components/core/termini-dialog";
-import { KontaktDialog } from "@/components/core/kontakt-dialog";
+import { MeetingsDialog } from "@/components/core/meetings-dialog";
+import { ContactDialog } from "@/components/core/contact-dialog";
 import { CampCarousel } from "@/components/core/camp-carousel";
 import { CampCountdown } from "@/components/core/camp-countdown";
 import { AddToEmailList } from "@/components/core/add-to-email-list";
@@ -34,8 +34,8 @@ export default function Home() {
                 poizveste več o nas.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 mx-auto sm:flex-row">
-                <TerminiDialog />
-                <KontaktDialog />
+                <MeetingsDialog />
+                <ContactDialog />
               </div>
             </div>
           </div>

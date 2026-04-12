@@ -47,8 +47,8 @@ export function CampCountdown() {
   const units = [
     { label: "Dni", value: timeLeft.days },
     { label: "Ur", value: timeLeft.hours },
-    { label: "Minut", value: timeLeft.minutes },
-    { label: "Sekund", value: timeLeft.seconds },
+    { label: "Minut", value: timeLeft.minutes, hideOnSm: true },
+    { label: "Sekund", value: timeLeft.seconds, hideOnSm: true },
   ];
 
   return (
@@ -85,19 +85,22 @@ export function CampCountdown() {
 
       {/* Right side timer */}
       <div className="w-full grid grid-cols-2 gap-4 sm:grid-cols-4 md:w-1/2 lg:gap-5">
-        {units.map((unit) => (
-          <div
-            key={unit.label}
-            className="flex flex-col items-center justify-center rounded-[1.25rem] p-6 lg:p-7 border-2 border-border bg-card transition-transform hover:-translate-y-1"
-          >
-            <div className="text-5xl font-extrabold tracking-tight tabular-nums text-card-foreground sm:text-4xl lg:text-5xl">
-              {String(unit.value).padStart(2, "0")}
+        {units.map((unit) => {
+          const hideClass = unit.hideOnSm ? "hidden sm:flex" : "flex";
+          return (
+            <div
+              key={unit.label}
+              className={`${hideClass} flex-col items-center justify-center rounded-[1.25rem] p-6 lg:p-7 border-2 border-border bg-card transition-transform hover:-translate-y-1`}
+            >
+              <div className="text-5xl font-extrabold tracking-tight tabular-nums text-card-foreground sm:text-4xl lg:text-5xl">
+                {String(unit.value).padStart(2, "0")}
+              </div>
+              <div className="mt-3 text-[0.7rem] font-bold uppercase tracking-widest text-muted-foreground sm:text-[0.65rem] lg:text-[0.75rem]">
+                {unit.label}
+              </div>
             </div>
-            <div className="mt-3 text-[0.7rem] font-bold uppercase tracking-widest text-muted-foreground sm:text-[0.65rem] lg:text-[0.75rem]">
-              {unit.label}
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { terminiData } from "@/lib/termini-data";
+import { meetingsData } from "@/lib/meetings-data";
 import { Calendar, Phone, DoorOpen, User } from "lucide-react";
 
 function getStripeStyle(
@@ -29,7 +29,7 @@ function getStripeStyle(
   };
 }
 
-export function TerminiDialog() {
+export function MeetingsDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -54,7 +54,7 @@ export function TerminiDialog() {
 
         <div className="p-4 max-h-[calc(90vh-120px)] overflow-auto">
           <Accordion type="single" collapsible className="flex flex-col gap-3">
-            {terminiData.map((entry) => (
+            {meetingsData.map((entry) => (
               <AccordionItem
                 key={entry.title}
                 value={entry.title}

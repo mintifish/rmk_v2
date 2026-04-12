@@ -1,4 +1,4 @@
-export const kontaktData = {
+export const contactData = {
   vodstvo: {
     naslov: "Vodstvo",
     nacelnik: {

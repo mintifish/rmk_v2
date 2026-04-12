@@ -1,4 +1,4 @@
-export type TerminiEntry = {
+export type MeetingEntry = {
   title: string;
   vodnik: string;
   cas: string;
@@ -11,7 +11,7 @@ export type TerminiEntry = {
   gapB: string;
 };
 
-export const terminiData: TerminiEntry[] = [
+export const meetingsData: MeetingEntry[] = [
   {
     title: "Drugi razredi",
     vodnik: "Neža Habe",
@@ -19,10 +19,10 @@ export const terminiData: TerminiEntry[] = [
     grade: 2,
     classroom: "Ni še določen",
     phone: "030-732-991",
-    stripeA: "#d4b84a",
-    stripeB: "#b84040",
-    gapA: "6px",
-    gapB: "14px",
+    stripeA: "#b84040",
+    stripeB: "#d4b84a",
+    gapA: "14px",
+    gapB: "6px", 
   },
   {
     title: "Tretji razredi",
@@ -31,10 +31,10 @@ export const terminiData: TerminiEntry[] = [
     grade: 3,
     classroom: "Ni še določen",
     phone: "069-604-303",
-    stripeA: "#d4b84a",
-    stripeB: "#b84040",
-    gapA: "6px",
-    gapB: "14px",
+    stripeA: "#b84040",
+    stripeB: "#d4b84a",
+    gapA: "14px",
+    gapB: "6px", 
   },
   {
     title: "Četrti razredi",
@@ -43,10 +43,10 @@ export const terminiData: TerminiEntry[] = [
     grade: 4,
     classroom: "Ni še določen",
     phone: "068-687-115",
-    stripeA: "#d4b84a",
-    stripeB: "#b84040",
-    gapA: "6px",
-    gapB: "14px",
+    stripeA: "#b84040",
+    stripeB: "#d4b84a",
+    gapA: "14px",
+    gapB: "6px", 
   },
   {
     title: "Peti razredi",
@@ -55,10 +55,10 @@ export const terminiData: TerminiEntry[] = [
     grade: 5,
     classroom: "Ni še določen",
     phone: "030-744-230",
-    stripeA: "#d4b84a",
-    stripeB: "#b84040",
-    gapA: "6px",
-    gapB: "14px",
+    stripeA: "#b84040",
+    stripeB: "#d4b84a",
+    gapA: "14px",
+    gapB: "6px", 
   },
   {
     title: "Šesti razredi",

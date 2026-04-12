@@ -9,10 +9,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { kontaktData } from "@/lib/kontakt-data";
+import { contactData } from "@/lib/contact-data";
 import { Phone, Mail } from "lucide-react";
 
-export function KontaktDialog() {
+export function ContactDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -37,20 +37,20 @@ export function KontaktDialog() {
         <div className="space-y-6">
           <div className="space-y-2 bg-white border border-border rounded-2xl max-h-[calc(90vh-120px)] overflow-auto p-4 shadow-sm hover:bg-primary/10 transition-colors">
             <h3 className="text-2xl font-black text-center font-heading text-slate-900">
-              {kontaktData.vodstvo.naslov}
+              {contactData.vodstvo.naslov}
             </h3>
             <div className="max-w-md mx-auto mt-4 text-lg text-center space-y-2 text-slate-700">
               <p>
                 <span className="font-semibold text-slate-900">Nacelnik:</span>{" "}
-                {kontaktData.vodstvo.nacelnik.ime}
+                {contactData.vodstvo.nacelnik.ime}
               </p>
               <p>
                 <span className="font-semibold text-slate-900">Email:</span>{" "}
-                {kontaktData.vodstvo.nacelnik.email}
+                {contactData.vodstvo.nacelnik.email}
               </p>
               <p>
                 <span className="font-semibold text-slate-900">Telefon:</span>{" "}
-                {kontaktData.vodstvo.nacelnik.telefon}
+                {contactData.vodstvo.nacelnik.telefon}
               </p>
             </div>
           </div>
@@ -58,24 +58,24 @@ export function KontaktDialog() {
           <div className="pb-5">
             <div className="space-y-2 bg-white borderborder-border rounded-2xl max-h-[calc(90vh-120px)] overflow-auto p-4 hover:bg-primary/10 transition-colors">
               <h3 className="text-2xl font-black text-center font-heading text-slate-900">
-                {kontaktData.ostaliPodatki.naslov}
+                {contactData.ostaliPodatki.naslov}
               </h3>
               <div className="max-w-md mx-auto mt-4 text-lg text-center space-y-2 text-slate-700">
                 <p>
                   <span className="font-semibold text-slate-900">
                     Lokacija:
                   </span>{" "}
-                  {kontaktData.ostaliPodatki.lokacija}
+                  {contactData.ostaliPodatki.lokacija}
                 </p>
                 <p>
                   <span className="font-semibold text-slate-900">
                     Davčna številka:
                   </span>{" "}
-                  {kontaktData.ostaliPodatki.davcnaStevilka}
+                  {contactData.ostaliPodatki.davcnaStevilka}
                 </p>
                 <p>
                   <span className="font-semibold text-slate-900">TRR:</span>{" "}
-                  {kontaktData.ostaliPodatki.trr}
+                  {contactData.ostaliPodatki.trr}
                 </p>
               </div>
             </div>

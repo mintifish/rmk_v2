@@ -2,13 +2,19 @@
 
 import { useEffect, useRef, useState } from "react";
 
+interface FadeInProps {
+  children: React.ReactNode | ((visible: boolean) => React.ReactNode);
+  className?: string;
+  threshold?: number;
+  rootMargin?: string;
+}
+
 export function FadeIn({
   children,
   className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
+  threshold = 0.1,
+  rootMargin = "0px",
+}: FadeInProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -22,11 +28,11 @@ export function FadeIn({
           observer.disconnect();
         }
       },
-      { threshold: 0.1 },
+      { threshold, rootMargin },
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [threshold, rootMargin]);
 
   return (
     <div
@@ -35,7 +41,7 @@ export function FadeIn({
         visible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
       } ${className ?? ""}`}
     >
-      {children}
+      {typeof children === "function" ? children(visible) : children}
     </div>
   );
 }

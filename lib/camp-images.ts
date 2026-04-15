@@ -1,4 +1,4 @@
-export const taborImages: Array<{
+export const campImages: Array<{
   image: string;
   alt: string;
   offsetX: number;

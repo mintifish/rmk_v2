@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -35,6 +36,12 @@
   --sidebar-accent-foreground: oklch(0.3787 0.0427 54.7263);
   --sidebar-border: oklch(0.8671 0.0174 61.9261);
   --sidebar-ring: oklch(0.3787 0.0427 54.7263);
+
+  --rutka-red: oklch(63.502% 0.2505 28.377);
+  --rutka-yellow: oklch(90.669% 0.18812 99.48);
+  --rutka-green: oklch(60.765% 0.20369 141.863);
+  --rutka-blue: oklch(54.881% 0.24991 261.799);
+
   --font-sans: Inter, system-ui, sans-serif;
   --font-serif: Merriweather, Georgia, serif;
   --font-mono: JetBrains Mono, monospace;
@@ -144,6 +151,11 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  --color-rutka-red: var(--rutka-red);
+  --color-rutka-yellow: var(--rutka-yellow); 
+  --color-rutka-green: var(--rutka-green);
+  --color-rutka-blue: var(--rutka-blue);
+
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
   --font-serif: var(--font-serif);
@@ -178,4 +190,14 @@
     @apply bg-background text-foreground;
     letter-spacing: var(--tracking-normal);
   }
+}
+
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
 }

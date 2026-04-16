@@ -24,13 +24,13 @@ type contactDataItem = {
 export const contactData: contactDataItem[] = [
   {
     title: "Lokacija",
-    description: "Pelechova c. 83, 1235 Radomlje",
+    description: "Prešernova cesta 43, 1235 Radomlje",
     icon: "MapPin",
     child: (
       // @ts-ignore: JSX only valid in .tsx files
       <div className="flex items-center gap-2">
         <a
-          href="https://www.google.com/maps/place/Borst+ob+Krki/@45.9425,15.3875,17z/data=!3m1!4b1!4m6!3m5!1s0x4765d9c8e7a9e7f:0x2c8b8c8b8c8b8c8!8m2!3d45.9425!4d15.3875!16s%2Fg%2F11c1z_9v6k?entry=ttu"
+          href="https://www.google.com/maps/place/Cultural+Center+Radomlje/@46.1774575,14.610691,422m/data=!3m1!1e3!4m6!3m5!1s0x476535958de56387:0x327251761c63d811!8m2!3d46.177166!4d14.6105618!16s%2Fg%2F11xbqy7yq?entry=ttu&g_ep=EgoyMDI2MDQwOC4wIKXMDSoASAFQAw%3D%3D"
           target="_blank"
           rel="noopener noreferrer"
           className="text-sm font-medium text-primary underline-offset-4 hover:underline"

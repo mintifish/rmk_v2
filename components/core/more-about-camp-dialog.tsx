@@ -26,8 +26,8 @@ export function MoreAboutCampDialog() {
       <DialogTrigger asChild>
         <Button
           size="lg"
-          variant="outline"
-          className="h-12 w-60 justify-center gap-2 rounded-full bg-background px-6 text-sm font-bold text-foreground shadow-[0_10px_20px_-18px_rgba(68,52,35,0.5)] transition-all hover:-translate-y-0.5 hover:bg-[#efe5d6] hover:text-[#5a4a37]"
+          variant="secondary"
+          className="h-12 w-60 justify-center gap-2 rounded-full px-6 text-sm font-bold transition-all hover:-translate-y-0.5"
         >
           <Phone className="w-5 h-5" /> Več o taboru
         </Button>

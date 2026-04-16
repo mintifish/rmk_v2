@@ -31,7 +31,7 @@ export function MeetingsDialog() {
         <Button
           size="lg"
           variant="secondary"
-          className="h-14 w-64 shrink-0 justify-center px-8 text-base shadow-sm hover:border hover:border-primary/70 hover:bg-background hover:text-primary transition-all hover:-translate-y-0.5"
+          className="h-14 w-64 justify-center px-8 text-base shadow-sm hover:border hover:border-primary/70 hover:bg-background hover:text-primary transition-all hover:-translate-y-0.5"
         >
           <Calendar className="w-5 h-5 mr-2" /> Termini po razredih
         </Button>

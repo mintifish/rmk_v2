@@ -3,9 +3,9 @@ import { Input } from "@/components/ui/input";
 
 export function AddToEmailList() {
   return (
-    <div className="flex flex-row flex-wrap w-fit shadow-lg items-center justify-center gap-4 py-6 px-8 bg-primary rounded-t-2xl mx-auto">
+    <div className="flex flex-col items-center justify-center gap-4 mx-auto mt-20 text-center rounded-xl bg-primary px-6 py-8 w-full max-w-md border border-border shadow-lg">
       
-      <h3 className="text-2xl font-medium text-white font-heading">
+      <h3 className="text-xl font-bold text-base text-white font-heading">
         Pridružite se naši email listi:
       </h3>
 

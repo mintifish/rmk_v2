@@ -21,7 +21,7 @@ export function CampCarousel() {
         {campImages.map((img) => (
           <CarouselItem
             key={img.image}
-            className="basis-1/2 sm:basis-1/3 lg:basis-4/9"
+            className="basis-1/1 sm:basis-2/3 lg:basis-4/9"
           >
             <img
               src={img.image}

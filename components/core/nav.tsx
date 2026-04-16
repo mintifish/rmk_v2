@@ -16,7 +16,7 @@ export function Nav() {
               href="/"
               className="text-primary hover:text-primary/90"
             >
-              <span className="hidden md:block">Rod Mlinskih kamnov</span>
+              <span className="hidden md:block">Rod mlinskih kamnov</span>
               <span className="md:hidden text-2xl">RMK</span>
             </Link>
           </h1>

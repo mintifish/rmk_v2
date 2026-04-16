@@ -28,11 +28,10 @@ export default function Home() {
             <div className="max-w-2xl space-y-6">
               <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl font-heading">
                 Dobrodošli v <br />
-                <span className="text-white">Rod Mlinskih Kamnov</span>
+                <span className="text-white">Rod mlinskih kamnov</span>
               </h2>
               <p className="text-lg leading-relaxed text-white/90">
-                Tu se nam lahko pridružite, se prijavite na naše aktivnosti in
-                poizveste več o nas.
+                Tu se lahko pridružite, se prijavite na naše aktivnosti in poizveste več o taborništvu.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 mx-auto sm:flex-row">
                 <MeetingsDialog />
@@ -41,7 +40,7 @@ export default function Home() {
             </div>
           </div>
 
-          <ArrowDown className="absolute size-8 bottom-10 left-1/2 -translate-x-1/2 text-white animate-bounce"/>
+          <ArrowDown className="absolute size-8 bottom-25 left-1/2 -translate-x-1/2 text-white animate-bounce"/>
         </section>
 
         {/* GALERY */}
@@ -75,7 +74,6 @@ export default function Home() {
         </div>
       </main>
       <AddToEmailList />
-      {/* FOOTER */}
       <Footer />
     </>
   );

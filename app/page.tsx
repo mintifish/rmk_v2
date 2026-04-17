@@ -21,9 +21,10 @@ export default function Home() {
             src="/images/hero-image.jpg"
             alt="Hero Image"
             fill
+            loading="eager"
           />
-          <div className="absolute inset-0 bg-black/10" />
-          <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+          <div className="absolute inset-0" />
+          <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black/50 via-black/30 to-transparent" />
           <div className="relative z-10 flex items-center justify-center min-h-screen px-6 py-12 text-center md:px-12">
             <div className="max-w-2xl space-y-6">
               <h2 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl font-heading">
@@ -40,7 +41,7 @@ export default function Home() {
             </div>
           </div>
 
-          <ArrowDown className="absolute size-8 bottom-25 left-1/2 -translate-x-1/2 text-white animate-bounce"/>
+          <ArrowDown className="absolute text-white -translate-x-1/2 size-8 bottom-25 left-1/2 animate-bounce"/>
         </section>
 
         {/* GALERY */}
@@ -67,13 +68,15 @@ export default function Home() {
         </FadeIn>
 
         {/* CAMP COUNTDOWN */}
-        <div className="pt-40 pb-40">
+        <div className="pt-40 pb-20">
           <FadeIn>
             <CampCountdown />
           </FadeIn>
         </div>
       </main>
-      <AddToEmailList />
+      <div className="pb-20">
+        <AddToEmailList />
+      </div>
       <Footer />
     </>
   );

@@ -1,12 +1,12 @@
 export function Footer() {
     return (
         <footer className="bg-primary">
-            <div className="container flex flex-col items-start justify-between gap-4 py-20 px-20 mx-auto md:flex-row">
+            <div className="container flex flex-col items-start justify-between gap-4 px-20 py-20 mx-auto md:flex-row">
                 <div className="flex flex-col items-center gap-4 md:items-start">
                     <h3 className="text-2xl font-black text-left text-black text-white font-heading">
                         Rod Mlinskih Kamnov
                     </h3>
-            <p className="text-sm text-left text-white text max-w-sm">
+            <p className="max-w-sm text-sm text-left text-white text">
               Rod Mlinskih Kamnov je neprofitna organizacija, ki deluje na{" "}
               prostovoljni osnovi. Naše delovanje je odvisno od podpore naših{" "}
               članov, donatorjev in sponzorjev. Hvala, ker ste del naše
@@ -57,7 +57,7 @@ export function Footer() {
         <div className="flex items-center justify-center h-full pb-5">
           <p className="text-sm text-[#ffe8b0] text-center">
             &copy; {new Date().getFullYear()} Rod Mlinskih Kamnov. Vse pravice
-            pridržane.
+            pridržane. Avtor: Tian Hrovat
           </p>
         </div>
     </footer>

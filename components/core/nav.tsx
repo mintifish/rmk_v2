@@ -3,8 +3,8 @@ import { NavDropdown } from "@/components/core/nav-dropdown";
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background shadow-sm">
-      <div className="container flex flex-wrap items-center justify-between py-2 mx-auto min-h-20 gap-3">
+    <header className="sticky top-0 z-50 w-full border-b shadow-sm bg-background">
+      <div className="container flex flex-wrap items-center justify-between gap-3 py-2 mx-auto min-h-20">
         <div className="flex items-center min-w-0 gap-3">
           <img
             src="/images/rmk-logo.png"
@@ -17,13 +17,12 @@ export function Nav() {
               className="text-primary hover:text-primary/90"
             >
               <span className="hidden md:block">Rod mlinskih kamnov</span>
-              <span className="md:hidden text-2xl">RMK</span>
+              <span className="text-2xl md:hidden">RMK</span>
             </Link>
           </h1>
         </div>
-
         {/* Tabs */}
-        <div className="items-center hidden px-10 text-sm font-medium md:flex gap-6">
+        <div className="items-center hidden gap-6 px-10 text-sm font-medium md:flex">
           <Link
             href="/"
             className="text-base font-medium text-foreground hover:text-primary/90"
@@ -43,7 +42,7 @@ export function Nav() {
             O nas
           </Link>
         </div>
-        <div className="flex items-center ml-auto shrink-0 gap-4">
+        <div className="flex items-center gap-4 ml-auto shrink-0">
           <NavDropdown />
         </div>
       </div>

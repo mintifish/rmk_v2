@@ -10,7 +10,15 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { LeaderData, contactData } from "@/lib/contact-data";
-import { Mail, Phone, MapPin, IdCard, User, Banknote, ArrowDown } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  IdCard,
+  User,
+  Banknote,
+  ArrowDown,
+} from "lucide-react";
 import React, { useRef, useState } from "react";
 
 const iconMap = {
@@ -53,25 +61,25 @@ export function ContactDialog() {
         </DialogHeader>
 
         <div className="space-y-6">
-          <div className="bg-white rounded-2xl border border-border p-6 mx-4 mt-4">
-            <span className="flex inline-flex text-2xl font-bold text-foreground gap-2">
-              <div className="rounded-xl border border-border shadow-sm maxw-w-xs mx-auto w-16 h-16 overflow-hidden">
+          <div className="p-6 mx-4 mt-4 bg-white border rounded-2xl border-border">
+            <span className="flex inline-flex gap-2 text-2xl font-bold text-foreground">
+              <div className="w-16 h-16 mx-auto overflow-hidden border shadow-sm rounded-xl border-border maxw-w-xs">
                 <img
                   src="/images/nacelnik.jpg"
                   alt="Nacelnik"
-                  className="w-full h-full object-cover"
+                  className="object-cover w-full h-full"
                 />
               </div>
               <div className="flex flex-col justify-center">
-                <span className="text-foreground text-base font-medium leading-tight">
-                  Nacelnik:
-                </span>
-                <span className="text-foreground text-xl font-bold text-primary">
+                <span className="text-xl font-bold text-foreground text-primary">
                   {LeaderData.description}
+                </span>
+                <span className="text-base font-medium leading-tight text-foreground/60">
+                  Načelnik
                 </span>
               </div>
             </span>
-            <div className="flex items-center text-base mt-4">
+            <div className="flex items-center mt-4 text-base">
               <Mail className="w-6 h-6 text-primary" />
               <a
                 href={`mailto:${LeaderData.email}`}
@@ -80,7 +88,7 @@ export function ContactDialog() {
                 {LeaderData.email}
               </a>
             </div>
-            <div className="flex items-center text-base mt-2">
+            <div className="flex items-center mt-2 text-base">
               <Phone className="w-6 h-6 text-primary" />
               <a
                 href={`tel:${LeaderData.telefon.replace(/-/g, "")}`}
@@ -94,36 +102,41 @@ export function ContactDialog() {
           <div
             ref={scrollRef}
             onScroll={handleScroll}
-            className="bg-white rounded-2xl border border-border p-6 mx-4 mb-4 max-h-[300px] overflow-y-auto"
+            className="bg-white rounded-2xl border border-border p-6 mx-4 mb-4 max-h-75 overflow-y-auto overscroll-none"
           >
-            <span className="text-foreground text-xl font-bold text-primary">
+            <span className="text-xl font-bold text-foreground text-primary">
               Ostali podatki
             </span>
-              {contactData.map((item, index) => {
-                const Icon = iconMap[item.icon as keyof typeof iconMap];
-                return (
-                  <div
-                    className="flex items-start gap-4 mt-4 hover:bg-primary/10 transition-colors p-4 rounded-lg border-b border-border last:border-b-0"
-                    key={index}
-                  >
-                    {Icon && <Icon className="w-6 h-6 text-primary mt-1 shrink-0" />}
-                    <div>
-                      <span className="text-foreground text-base font-medium leading-tight">
-                        {item.title}:
-                      </span>
-                      <div className="text-primary text-lg font-semibold">
-                        {item.description}
-                      </div>
-                      {item.child && <div className="mt-2">{item.child}</div>}
+            {contactData.map((item, index) => {
+              const Icon = iconMap[item.icon as keyof typeof iconMap];
+              return (
+                <div
+                  className="flex items-start gap-4 p-4 mt-4 transition-colors border-b rounded-lg hover:bg-primary/10 border-border last:border-b-0"
+                  key={index}
+                >
+                  {Icon && (
+                    <Icon className="w-6 h-6 mt-1 text-primary shrink-0" />
+                  )}
+                  <div>
+                    <span className="text-base font-medium leading-tight text-foreground">
+                      {item.title}:
+                    </span>
+                    <div className="text-lg font-semibold text-primary">
+                      {item.description}
                     </div>
+                    {item.child && <div className="mt-2">{item.child}</div>}
                   </div>
-                );
-              })}
+                </div>
+              );
+            })}
           </div>
 
           <div
-            className="flex justify-center bottom-6 z-20 transition-opacity duration-200 pb-2"
-            style={{ opacity: scrolled ? 0 : 1, pointerEvents: scrolled ? "none" : "auto" }}
+            className="z-20 flex justify-center pb-2 transition-opacity duration-200 bottom-6"
+            style={{
+              opacity: scrolled ? 0 : 1,
+              pointerEvents: scrolled ? "none" : "auto",
+            }}
           >
             <ArrowDown className="w-7 h-7 text-primary animate-bounce" />
           </div>

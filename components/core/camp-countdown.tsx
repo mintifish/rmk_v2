@@ -69,7 +69,7 @@ export function CampCountdown() {
           Do odhoda nas loči še:
         </p>
 
-        <div className="flex flex-col items-start w-full mt-8 gap-4 sm:flex-row sm:items-center lg:gap-5">
+        <div className="flex flex-col items-start w-full gap-4 mt-8 sm:flex-row sm:items-center lg:gap-5">
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLScODt6gOeX2P2NfuxawZQ_QiUEmpoUItighomgHuo2lFUEzJA/viewform?usp=sf_link"
             target="_blank"
@@ -84,7 +84,7 @@ export function CampCountdown() {
       </div>
 
       {/* Right side timer */}
-      <div className="w-full grid grid-cols-2 gap-4 sm:grid-cols-4 md:w-1/2 lg:gap-5">
+      <div className="grid w-full grid-cols-2 gap-4 sm:grid-cols-4 md:w-1/2 lg:gap-5">
         {units.map((unit) => {
           const hideClass = unit.hideOnSm ? "hidden sm:flex" : "flex";
           return (

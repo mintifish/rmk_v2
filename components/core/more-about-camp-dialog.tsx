@@ -27,7 +27,7 @@ export function MoreAboutCampDialog() {
         <Button
           size="lg"
           variant="secondary"
-          className="h-12 w-60 justify-center gap-2 rounded-full px-6 text-sm font-bold transition-all hover:-translate-y-0.5"
+          className="h-12 w-64 justify-center px-8 rounded-xl text-base shadow-sm hover:border hover:border-primary/70 hover:bg-background hover:text-primary transition-all hover:-translate-y-0.5 border-1 border-border"
         >
           <Phone className="w-5 h-5" /> Več o taboru
         </Button>
@@ -50,7 +50,7 @@ export function MoreAboutCampDialog() {
                 {CampAbout.map((section) => (
                   <div
                     key={section.title}
-                    className="p-4 rounded-lg space-y-2 hover:bg-primary/10 transition-colors"
+                    className="p-4 space-y-2 transition-colors rounded-lg hover:bg-primary/10"
                   >
                     <h4 className="text-base font-semibold text-foreground">
                       {section.title}

@@ -53,7 +53,7 @@ export function CampCountdown() {
 
   return (
     <div
-      className="mx-auto flex w-full max-w-[70rem] flex-col items-center justify-between gap-10 rounded-3xl px-6 py-10 md:flex-row lg:px-12 lg:py-12 border-2 border-border bg-background shadow-2xl hover:shadow-3xl transition-shadow duration-300"
+      className="mx-auto flex w-full max-w-280 flex-col items-center justify-between gap-10 rounded-3xl px-6 py-10 md:flex-row lg:px-12 lg:py-12 border-2 border-border bg-background shadow-2xl hover:shadow-3xl transition-shadow duration-300"
     >
       {/* Left side text and buttons */}
       <div className="flex flex-col items-start w-full text-left md:w-1/2 md:pr-6">

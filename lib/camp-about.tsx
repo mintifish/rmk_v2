@@ -28,8 +28,7 @@ export const CampAbout: CampAboutItem[] = [
   },
   {
     title: "Kdaj?",
-    description:
-      "Naš tabor ponuja širok spekter aktivnosti, ki vključujejo športne igre, ustvarjalne delavnice, pohodništvo, plavanje in več. Naše aktivnosti so zasnovane tako, da spodbujajo timsko delo, kreativnost in osebni razvoj otrok.",
+    description: "17. – 24. julij 2026",
   },
   {
     title: "Od kod se odpravimo?",

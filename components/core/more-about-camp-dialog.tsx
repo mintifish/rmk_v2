@@ -10,15 +10,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { CampAbout } from "@/lib/camp-about";
-import { Phone } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
-
-type CampAboutSection = {
-  title: string;
-  description: string;
-  googleMapsLink?: string;
-  refundPolicy?: string;
-};
+import { Info } from "lucide-react";
 
 export function MoreAboutCampDialog() {
   return (
@@ -27,13 +19,13 @@ export function MoreAboutCampDialog() {
         <Button
           size="lg"
           variant="secondary"
-          className="h-12 w-64 justify-center px-8 rounded-xl text-base shadow-sm hover:border hover:border-primary/70 hover:bg-background hover:text-primary transition-all hover:-translate-y-0.5 border-1 border-border"
+          className="h-12 w-64 justify-center px-8 rounded-xl text-base shadow-sm hover:border hover:border-primary/70 hover:bg-background hover:text-primary transition-all hover:-translate-y-0.5 border border-border"
         >
-          <Phone className="w-5 h-5" /> Več o taboru
+          <Info className="w-5 h-5" /> Več o taboru
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="p-0 sm:max-w-lg max-h-[100vh] overflow-hidden bg-background">
+      <DialogContent className="p-0 sm:max-w-lg max-h-screen overflow-hidden bg-background">
         <DialogHeader className="p-6 rounded-t-xl bg-primary text-primary-foreground">
           <DialogTitle className="text-3xl font-bold font-heading">
             Več o taboru
@@ -44,26 +36,20 @@ export function MoreAboutCampDialog() {
         </DialogHeader>
 
         <div className="space-y-2 max-h-[calc(90vh-120px)] overflow-auto p-4">
-          <Carousel orientation="vertical" className="h-[600px]">
-            <CarouselContent>
-              <CarouselItem>
-                {CampAbout.map((section) => (
-                  <div
-                    key={section.title}
-                    className="p-4 space-y-2 transition-colors rounded-lg hover:bg-primary/10"
-                  >
-                    <h4 className="text-base font-semibold text-foreground">
-                      {section.title}
-                    </h4>
-                    <p className="text-sm whitespace-pre-line text-muted-foreground">
-                      {section.description}
-                    </p>
-                    {section.child && <div>{section.child}</div>}
-                  </div>
-                ))}
-              </CarouselItem>
-            </CarouselContent>
-          </Carousel>
+          {CampAbout.map((section) => (
+            <div
+              key={section.title}
+              className="p-4 space-y-2 transition-colors rounded-lg hover:bg-primary/10"
+            >
+              <h4 className="text-base font-semibold text-foreground">
+                {section.title}
+              </h4>
+              <p className="text-sm whitespace-pre-line text-muted-foreground">
+                {section.description}
+              </p>
+              {section.child && <div>{section.child}</div>}
+            </div>
+          ))}
         </div>
       </DialogContent>
     </Dialog>

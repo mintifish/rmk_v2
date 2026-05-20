@@ -1,65 +1,79 @@
+const socials_links = [
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/rodmlinskihkamnov/",
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/rmkradomlje/",
+  },
+];
+
+const contact_links = [
+  {
+    name: "Email",
+    href: "mailto:rmkrad@gmail.com",
+  },
+  {
+    name: "Telefon",
+    href: "tel:+38670366357",
+  },
+];
+
 export function Footer() {
-    return (
-        <footer className="bg-primary">
-            <div className="container flex flex-col items-start justify-between gap-4 px-20 py-20 mx-auto md:flex-row">
-                <div className="flex flex-col items-center gap-4 md:items-start">
-                    <h3 className="text-2xl font-black text-left text-black text-white font-heading">
-                        Rod Mlinskih Kamnov
-                    </h3>
-            <p className="max-w-sm text-sm text-left text-white text">
-              Rod Mlinskih Kamnov je neprofitna organizacija, ki deluje na{" "}
-              prostovoljni osnovi. Naše delovanje je odvisno od podpore naših{" "}
+  return (
+    <div className="flex flex-col w-full">
+      <img src="/art/footer_transition.jpg" alt="footer_transition" />
+      <footer className="bg-primary">
+        <div className="flex flex-col items-start justify-between w-full gap-8 p-4 px-4 pb-5 mx-auto md:flex-row md:px-20">
+          <div className="flex flex-col items-start w-full gap-4 md:w-auto">
+            <h3 className="text-xl font-black text-left text-white md:text-2xl font-heading">
+              Rod Mlinskih Kamnov
+            </h3>
+            <p className="max-w-sm text-base text-left text-white md:text-sm">
+              Rod Mlinskih Kamnov je neprofitna organizacija, ki deluje na
+              prostovoljni osnovi. Naše delovanje je odvisno od podpore naših
               članov, donatorjev in sponzorjev. Hvala, ker ste del naše
               skupnosti!
             </p>
           </div>
-          <div className="flex flex-col items-center gap-4 md:items-start">
-            <h3 className="text-2xl font-black text-left text-black text-white font-heading">
+          <div className="flex flex-col items-start w-full gap-4 md:w-auto">
+            <h3 className="text-xl font-black text-left text-white md:text-2xl font-heading">
               Kontakt:
             </h3>
-            <a
-              href="mailto:rmkrad@gmail.com"
-              className="text-white transition-colors hover:underline"
-            >
-              Email: rmkrad@gmail.com
-            </a>
-            <a
-              href="tel:+38670366357"
-              className="text-white transition-colors hover:underline"
-            >
-              Telefon: +386 70 366 357
-            </a>
+            {contact_links.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-base text-left text-white transition-colors hover:underline md:text-sm"
+              >
+                {link.name}: {link.href.replace(/^(mailto:|tel:)/, "")}
+              </a>
+            ))}
           </div>
-          <div className="flex flex-col items-center gap-4 md:items-start">
-            <h3 className="text-2xl font-black text-left text-black text-white font-heading">
+          <div className="flex flex-col items-start w-full gap-4 md:w-auto">
+            <h3 className="text-xl font-black text-left text-white md:text-2xl font-heading">
               Sledi nam:
             </h3>
-            <div className="flex flex-col gap-2">
+            {socials_links.map((link) => (
               <a
-                href="https://www.instagram.com/rodmlinskihkamnov/"
+                key={link.name}
+                href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white transition-colors hover:text-white/90 hover:underline"
+                className="text-base text-left text-white transition-colors hover:text-white/90 hover:underline md:text-sm"
               >
-                Instagram
+                {link.name}
               </a>
-              <a
-                href="https://www.facebook.com/rmkradomlje/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white transition-colors hover:text-white/90 hover:underline"
-              >
-                Facebook
-              </a>
-            </div>
+            ))}
           </div>
         </div>
-        <div className="flex items-center justify-center h-full pb-5">
-          <p className="text-sm text-[#ffe8b0] text-center">
-            &copy; {new Date().getFullYear()} Rod Mlinskih Kamnov. Vse pravice
-            pridržane. Avtor: Tian Hrovat
+        <div className="flex items-start justify-start h-full px-4 pb-5 md:px-0">
+          <p className="text-base md:text-sm text-[#ffe8b0] text-center w-full">
+            &copy; {new Date().getFullYear()} Rod Mlinskih Kamnov. Vse pravice pridržane. Avtor: Tian Hrovat
           </p>
         </div>
-    </footer>
+      </footer>
+    </div>
   );
 }

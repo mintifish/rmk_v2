@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import {
   Dialog,
   DialogContent,
@@ -50,7 +51,7 @@ export function ContactDialog() {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="p-0 sm:max-w-lg max-h-[100vh] overflow-hidden bg-background">
+      <DialogContent className="max-h-screen p-0 overflow-hidden sm:max-w-lg bg-background">
         <DialogHeader className="p-6 rounded-t-xl bg-primary text-primary-foreground">
           <DialogTitle className="text-3xl font-bold font-heading">
             Kontakt
@@ -61,24 +62,25 @@ export function ContactDialog() {
         </DialogHeader>
 
         <div className="space-y-6">
-          <div className="p-6 mx-4 mt-4 bg-white border rounded-2xl border-border">
-            <span className="flex inline-flex gap-2 text-2xl font-bold text-foreground">
-              <div className="w-16 h-16 mx-auto overflow-hidden border shadow-sm rounded-xl border-border maxw-w-xs">
-                <img
+          <div className="p-6 mx-4 mt-4 border bg-card rounded-2xl border-border">
+            <div className="flex items-start gap-2 text-2xl font-bold text-foreground">
+              <div className="relative w-16 h-16 overflow-hidden border shadow-sm rounded-xl border-border">
+                <Image
                   src="/images/nacelnik.jpg"
                   alt="Nacelnik"
-                  className="object-cover w-full h-full"
+                  fill
+                  className="object-cover"
                 />
               </div>
               <div className="flex flex-col justify-center">
-                <span className="text-xl font-bold text-foreground text-primary">
+                <span className="text-xl font-bold text-primary">
                   {LeaderData.description}
                 </span>
                 <span className="text-base font-medium leading-tight text-foreground/60">
                   Načelnik
                 </span>
               </div>
-            </span>
+            </div>
             <div className="flex items-center mt-4 text-base">
               <Mail className="w-6 h-6 text-primary" />
               <a
@@ -102,9 +104,9 @@ export function ContactDialog() {
           <div
             ref={scrollRef}
             onScroll={handleScroll}
-            className="bg-white rounded-2xl border border-border p-6 mx-4 mb-4 max-h-75 overflow-y-auto overscroll-none"
+            className="p-6 mx-4 mb-4 overflow-y-auto border bg-card rounded-2xl border-border max-h-75 overscroll-none"
           >
-            <span className="text-xl font-bold text-foreground text-primary">
+            <span className="text-xl font-bold text-primary">
               Ostali podatki
             </span>
             {contactData.map((item, index) => {

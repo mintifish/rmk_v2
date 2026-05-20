@@ -37,7 +37,7 @@ export function MeetingsDialog() {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="p-0 sm:max-w-lg max-h-[100vh] overflow-hidden bg-background">
+      <DialogContent className="p-0 sm:max-w-lg max-h-screen overflow-hidden bg-background">
         <DialogHeader className="p-6 rounded-t-xl bg-primary text-primary-foreground">
           <DialogTitle className="text-3xl font-bold font-heading">
             Termini po razredih

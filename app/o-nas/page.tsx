@@ -23,10 +23,10 @@ export default function ONasPage() {
           {/* Right: image */}
           <div className="w-full md:w-1/2">
             <Image
-              src="/images/vodstvo-skupinska.jpg"
+              src="/images/vodstvo-skupinska-slika.jpg"
               alt="Vodstvo skupinska"
-              width={2907}
-              height={1462}
+              width={3121}
+              height={4682}
               className="object-cover w-full shadow-2xl md:rounded-lg max-h-115"
             />
           </div>

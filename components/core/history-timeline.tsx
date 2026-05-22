@@ -8,19 +8,16 @@ import { historyEvents } from "@/lib/history-data";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// All sizing is done via CSS clamp() in the JSX below.
-// GSAP measures the rendered DOM so it automatically matches any screen size.
-
 export function HistoryTimeline() {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const stRef = useRef<ReturnType<typeof ScrollTrigger.create> | null>(null);
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
     const track = trackRef.current;
     if (!section || !track) return;
 
-    let st: ReturnType<typeof ScrollTrigger.create> | undefined;
     let tween: gsap.core.Tween | undefined;
 
     // Defer one frame so CSS clamp() values are fully resolved before measuring
@@ -29,9 +26,9 @@ export function HistoryTimeline() {
 
       tween = gsap.to(track, { x: () => -getTotal(), ease: "none" });
 
-      st = ScrollTrigger.create({
+      stRef.current = ScrollTrigger.create({
         trigger: section,
-        start: "top top",
+        start: "bottom bottom",
         end: () => `+=${getTotal()}`,
         pin: true,
         pinSpacing: true,
@@ -39,12 +36,14 @@ export function HistoryTimeline() {
         anticipatePin: 1,
         invalidateOnRefresh: true,
         animation: tween,
+
       });
     });
 
     return () => {
       cancelAnimationFrame(rafId);
-      st?.kill();
+      stRef.current?.kill();
+      stRef.current = null;
       tween?.kill();
     };
   }, []);
@@ -52,73 +51,76 @@ export function HistoryTimeline() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-background will-change-transform"
-      style={{ height: "100vh" }}
+      className="relative w-full overflow-hidden bg-background"
+      style={{ height: "85vh" }}
     >
-      {/* Section header */}
-      <div className="absolute left-0 z-10 flex flex-col items-center w-full pointer-events-none select-none top-30">
-        <h2 className="text-4xl font-extrabold font-heading text-primary md:text-5xl">
-          Naša zgodovina
-        </h2>
-        <p className="max-w-xs px-4 mt-2 text-sm text-center text-primary md:max-w-md">
-          Spoznaj kako smo rasli skozi leta, od ustanovitve do danes, in ključne
-          dogodke na naši poti.
-        </p>
-      </div>
-
       {/* Horizontal scrolling track */}
       <div
         ref={trackRef}
-        className="absolute top-0 left-0 flex items-center h-full"
-        style={{
-          paddingLeft: "clamp(20px, 8vw, 120px)",
-          paddingRight: "clamp(60px, 30vw, 500px)",
-          gap: "clamp(20px, 4vw, 72px)",
-          willChange: "transform",
-        }}
+        className="absolute top-0 left-0 flex h-full"
+        style={{ willChange: "transform" }}
       >
-        {/* Timeline line — spans exactly from first to last card */}
-        <div
-          className="absolute top-1/2 -translate-y-1/2 h-0.5 bg-border"
-          style={{
-            left: "clamp(20px, 8vw, 120px)",
-            right: "clamp(60px, 30vw, 500px)",
-          }}
-        />
-
-        {historyEvents.map((event, index) => {
-          const isAbove = index % 2 === 0;
-          return (
-            <div
-              key={event.id}
-              className="relative flex flex-col items-center"
-              style={{ width: "min(520px, calc(100vw - 48px))", flexShrink: 0 }}
-            >
-              {isAbove && (
-                <div className="w-full mb-6">
-                  <EventCard event={event} />
-                </div>
-              )}
-
-              {/* Timeline dot + date */}
-              <div className="relative z-10 flex flex-col items-center">
-                <div className="w-5 h-5 rounded-full bg-primary border-[3px] border-background shadow-lg" />
-                <span className="mt-2 text-xs font-bold tracking-widest uppercase text-muted-foreground">
-                  {event.date}
-                </span>
+        {/*change background color if the idex is eaven or odd*/}
+        {historyEvents.map((event, index) => (
+          <div
+            key={event.id}
+            className={`relative flex flex-col md:flex-row pt-20 md:items-stretch shrink-0 ${index % 2 === 0 ? "bg-background" : "bg-border"}`}
+            style={{ width: "100vw", height: "85vh" }}
+          >
+            {/* Text */}
+            <div className="relative flex flex-col w-full md:w-[45%] px-6 pt-28 pb-3 md:px-[clamp(28px,5vw,80px)] md:pt-[clamp(100px,14vh,160px)] md:pb-[clamp(28px,5vw,80px)]">
+              {/* Date — top-right corner on sm, inline on md+ */}
+              <span className="absolute text-lg font-bold tracking-widest uppercase top-24 right-4 md:static md:mb-3 text-muted-foreground">
+                {event.date}
+              </span>
+              <h3
+                className="mb-4 font-extrabold leading-tight font-heading text-primary"
+                style={{ fontSize: "clamp(22px, 2.8vw, 44px)" }}
+              >
+                {event.title}
+              </h3>
+              <div
+                className={
+                  event.description_second_block
+                    ? "grid grid-cols-2 gap-4 w-full"
+                    : "w-full"
+                }
+              >
+                <p
+                  className="leading-relaxed text-gray-700"
+                  style={{ fontSize: "clamp(14px, 1.1vw, 17px)" }}
+                >
+                  {event.description}
+                </p>
+                {event.description_second_block && (
+                  <p
+                    className="leading-relaxed text-gray-700"
+                    style={{ fontSize: "clamp(14px, 1.1vw, 17px)" }}
+                  >
+                    {event.description_second_block}
+                  </p>
+                )}
               </div>
-
-              {!isAbove && (
-                <div className="w-full mt-6">
-                  <EventCard event={event} />
-                </div>
-              )}
             </div>
-          );
-        })}
+
+            {/* Image */}
+            <div className="flex-1 min-h-0 w-full px-4 pb-6 md:flex-none md:w-[55%] md:pt-[clamp(32px,7vh,90px)] md:pb-[clamp(32px,7vh,90px)] md:pl-[clamp(8px,1.5vw,20px)] md:pr-[clamp(16px,3vw,48px)]">
+              <div className="relative w-full h-full overflow-hidden rounded-2xl">
+                <Image
+                  src={event.image}
+                  alt={event.title}
+                  fill
+                  className="object-cover"
+                  unoptimized={event.id === 1}
+                  style={{ imageOrientation: "none" }}
+                />
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* Scroll hint — clicking scrolls down to advance the horizontal track */}
+      {/* Scroll hint */}
       <button
         onClick={() =>
           window.scrollBy({
@@ -126,7 +128,7 @@ export function HistoryTimeline() {
             behavior: "smooth",
           })
         }
-        className="absolute bottom-6 right-6 inline-flex items-center gap-2 rounded-full border-2 border-border bg-accent px-4 py-2 text-xs font-bold uppercase tracking-widest text-accent-foreground shadow-md cursor-pointer hover:bg-primary hover:text-primary-foreground hover:border-primary hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
+        className="absolute bottom-6 right-6 z-10 inline-flex items-center gap-2 rounded-full border-2 border-primary-foreground/40 bg-primary-foreground/10 px-4 py-2 text-xs font-bold uppercase tracking-widest text-primary-foreground shadow-md cursor-pointer hover:bg-primary-foreground hover:text-primary hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
       >
         Pomakni desno
         <svg
@@ -147,28 +149,5 @@ export function HistoryTimeline() {
         </svg>
       </button>
     </section>
-  );
-}
-
-function EventCard({ event }: { event: (typeof historyEvents)[number] }) {
-  return (
-    <div className="overflow-hidden transition-all duration-300 border-2 shadow-2xl border-border bg-card rounded-3xl hover:shadow-3xl hover:-translate-y-1">
-      <div className="relative w-full aspect-video">
-        <Image
-          src={event.image}
-          alt={event.title}
-          fill
-          className="object-cover"
-        />
-      </div>
-      <div className="p-6">
-        <h3 className="mb-2 text-xl font-extrabold leading-tight font-heading text-[#43302b]">
-          {event.title}
-        </h3>
-        <p className="text-sm leading-relaxed text-[#665c58]">
-          {event.description}
-        </p>
-      </div>
-    </div>
   );
 }

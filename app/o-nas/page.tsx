@@ -1,6 +1,8 @@
+"use client";
 import { Footer } from "@/components/core/footer";
 import { HistoryTimeline } from "@/components/core/history-timeline";
 import { TeamSection } from "@/components/core/team-section";
+import { OurApproach } from "@/components/core/our-approach";
 import Image from "next/image";
 
 export default function ONasPage() {
@@ -9,7 +11,7 @@ export default function ONasPage() {
       <main className="flex flex-col items-center pb-12 sm:pt-4 md:px-12">
         <div className="flex flex-col w-full gap-8 pt-10 md:flex-row">
           {/* Left: text */}
-          <div className="flex flex-col items-center gap-4 p-2 md:items-start md:w-1/2">
+          <div className="flex flex-col items-center justify-center gap-6 p-2 md:items-start md:w-1/2">
             <h1 className="font-heading text-4xl font-extrabold text-[#43302b] md:text-5xl lg:text-8xl md:leading-none text-center md:text-left">
               <span className="inline md:block">Spoznaj </span>
               <span className="inline md:block">naše </span>
@@ -19,6 +21,20 @@ export default function ONasPage() {
               Smo taborniki iz Radomlj, ki se z veseljem družimo, raziskujemo
               naravo in ustvarjamo nepozabne spomine.
             </p>
+            <div className="flex flex-row w-full gap-4 justify-center md:justify-start">
+              <a
+                href="#zgodovina"
+                className="inline-flex items-center justify-center h-12 gap-2 px-8 text-base font-medium transition-all border rounded-lg shadow-sm w-fit border-primary/40 bg-primary text-primary-foreground hover:bg-primary/90 hover:-translate-y-0.5"
+              >
+                Naša zgodovina
+              </a>
+              <a
+                href="#vodstvo"
+                className="inline-flex items-center justify-center h-12 gap-2 px-8 text-base font-medium transition-all bg-transparent border rounded-lg shadow-sm w-fit border-primary/40 text-primary hover:bg-primary/5 hover:-translate-y-0.5"
+              >
+                Spoznaj vodstvo
+              </a>
+            </div>
           </div>
           {/* Right: image */}
           <div className="w-full md:w-1/2">
@@ -32,8 +48,13 @@ export default function ONasPage() {
           </div>
         </div>
       </main>
-      <HistoryTimeline />
-      <TeamSection />
+      <OurApproach/>
+      <div id="zgodovina">
+        <HistoryTimeline />
+      </div>
+      <div id="vodstvo">
+        <TeamSection />
+      </div>
       <Footer />
     </>
   );

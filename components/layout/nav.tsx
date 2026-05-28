@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { NavDropdown } from "@/components/core/nav-dropdown";
-import { MobileNav } from "@/components/core/mobile-nav";
+import { NavDropdown } from "@/components/layout/nav-dropdown";
+import { MobileNav } from "@/components/layout/mobile-nav";
 
 export function Nav() {
   return (
@@ -33,6 +33,9 @@ export function Nav() {
           </Link>
           <Link href="/o-nas" className="text-base font-medium text-foreground hover:text-primary/90">
             O nas
+          </Link>
+          <Link href="/donacije" className="text-base font-medium text-foreground hover:text-primary/90">
+            Donacije
           </Link>
         </div>
 

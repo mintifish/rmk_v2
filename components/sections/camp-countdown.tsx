@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MoreAboutCampDialog } from "./more-about-camp-dialog";
+import { MoreAboutCampDialog } from "@/components/dialogs/more-about-camp-dialog";
 
 export function CampCountdown() {
   const [timeLeft, setTimeLeft] = useState<

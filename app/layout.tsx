@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { Nav } from "@/components/core/nav";
+import { Nav } from "@/components/layout/nav";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta-sans",
@@ -33,7 +33,7 @@ export default function RootLayout({
     <html
       lang="sl"
       suppressHydrationWarning
-      className={`${plusJakartaSans.variable} ${beVietnamPro.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${beVietnamPro.variable} ${geistMono.variable} h-full antialiased overflow-x-hidden`}
     >
       <body suppressHydrationWarning className="flex flex-col min-h-screen overflow-x-hidden bg-background">
         <Nav />

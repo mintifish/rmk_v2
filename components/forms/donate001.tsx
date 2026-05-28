@@ -1,5 +1,5 @@
 "use client";
-import Magnet from "@/components/Magnet";
+import Magnet from "@/components/animations/Magnet";
 import {
   Dialog,
   DialogTrigger,

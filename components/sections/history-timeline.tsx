@@ -4,7 +4,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { historyEvents } from "@/lib/history-data";
+import { historyEvents } from "@/lib/data/history-data";
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -1,6 +1,6 @@
 "use client";
 
-import ClickSpark from "@/components/ClickSpark";
+import ClickSpark from "@/components/animations/ClickSpark";
 
 export function ClickSparkWrapper({ children }: { children: React.ReactNode }) {
   return (

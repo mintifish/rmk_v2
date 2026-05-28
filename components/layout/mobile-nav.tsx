@@ -8,6 +8,7 @@ const web_paths = [
   { name: "Domov", href: "/" },
   { name: "Galerija", href: "/galerija" },
   { name: "O nas", href: "/o-nas" },
+  { name: "Donacije", href: "/donacije" },
 ];
 
 const aplications_paths = [

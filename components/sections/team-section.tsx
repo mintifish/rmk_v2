@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { teamMembers } from "@/lib/team-data";
-import { Button } from "../ui/button";
+import { teamMembers } from "@/lib/data/team-data";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
 function getInitials(name: string) {

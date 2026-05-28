@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { CampAbout } from "@/lib/camp-about";
+import { CampAbout } from "@/lib/data/camp-about";
 import { Info } from "lucide-react";
 
 export function MoreAboutCampDialog() {

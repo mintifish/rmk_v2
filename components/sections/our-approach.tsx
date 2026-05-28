@@ -1,42 +1,51 @@
-import { ourApproach } from "@/lib/our-approach";
+import { ourApproach } from "@/lib/data/our-approach";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { Compass, Users, Sprout, HeartHandshake, ShieldCheck, HandHeart } from "lucide-react";
+import {
+  Compass,
+  Users,
+  Sprout,
+  HeartHandshake,
+  ShieldCheck,
+  HandHeart,
+} from "lucide-react";
 
 export const OurApproach = () => {
   return (
-    <section className="flex min-h-screen/2 flex-col lg:flex-row items-center gap-8 pb-12 pt-20 px-6 md:px-[clamp(28px,5vw,80px)]">
+    <section className="flex flex-colx min-h-screen/2 lg:flex-row items-center gap-8 pb-12 pt-20 px-6 md:px-[clamp(28px,5vw,80px)]">
       <div className="flex flex-col items-start w-full gap-4 lg:flex-row lg:gap-32">
         <div className="flex flex-col gap-6 shrink-0 lg:w-1/4">
           <h2 className="text-3xl font-extrabold text-left font-heading text-primary md:text-4xl lg:text-6xl md:leading-none">
             Naš pristop
           </h2>
-          <ul className="flex flex-col gap-4 mt-2">
-            <li className="flex items-center gap-3 text-lg font-medium text-muted-foreground">
-              <Compass className="w-6 h-6 text-primary" />
-              Učenje iz izkušenj
-            </li>
-            <li className="flex items-center gap-3 text-lg font-medium text-muted-foreground">
-              <Users className="w-6 h-6 text-primary" />
-              Majhne skupine
-            </li>
-            <li className="flex items-center gap-3 text-lg font-medium text-muted-foreground">
-              <HandHeart className="w-6 h-6 text-primary" />
-              Prostovoljstvo
-            </li>
-            <li className="flex items-center gap-3 text-lg font-medium text-muted-foreground">
-              <HeartHandshake className="w-6 h-6 text-primary" />
-              Medsebojno spoštovanje
-            </li>
-            <li className="flex items-center gap-3 text-lg font-medium text-muted-foreground">
-              <Sprout className="w-6 h-6 text-primary" />
-              Osebna rast
-            </li>
-          </ul>
+          <div className="hidden md:flex">
+            <ul className="flex flex-col gap-4 mt-2">
+              <li className="flex items-center gap-3 text-lg font-medium text-muted-foreground">
+                <Compass className="w-6 h-6 text-primary" />
+                Učenje iz izkušenj
+              </li>
+              <li className="flex items-center gap-3 text-lg font-medium text-muted-foreground">
+                <Users className="w-6 h-6 text-primary" />
+                Majhne skupine
+              </li>
+              <li className="flex items-center gap-3 text-lg font-medium text-muted-foreground">
+                <HandHeart className="w-6 h-6 text-primary" />
+                Prostovoljstvo
+              </li>
+              <li className="flex items-center gap-3 text-lg font-medium text-muted-foreground">
+                <HeartHandshake className="w-6 h-6 text-primary" />
+                Medsebojno spoštovanje
+              </li>
+              <li className="flex items-center gap-3 text-lg font-medium text-muted-foreground">
+                <Sprout className="w-6 h-6 text-primary" />
+                Osebna rast
+              </li>
+            </ul>
+          </div>
         </div>
         <div className="flex-1 w-full min-w-0">
           <h1 className="">

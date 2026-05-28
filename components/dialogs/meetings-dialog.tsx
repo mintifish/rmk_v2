@@ -15,7 +15,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { meetingsData } from "@/lib/meetings-data";
+import { meetingsData } from "@/lib/data/meetings-data";
 import { Calendar, Phone, DoorOpen, User } from "lucide-react";
 
 function getStripeStyle(stripes: [string, string]) {

@@ -2,7 +2,7 @@
 
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
-import { campImages } from "@/lib/camp-images";
+import { campImages } from "@/lib/data/camp-images";
 import {
   Carousel,
   CarouselContent,

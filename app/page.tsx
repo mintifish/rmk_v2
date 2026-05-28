@@ -1,13 +1,13 @@
-import { MeetingsDialog } from "@/components/core/meetings-dialog";
-import { ContactDialog } from "@/components/core/contact-dialog";
-import { Donate001 } from "@/components/core/donate001";
-import { CampCarousel } from "@/components/core/camp-carousel";
-import { CampCountdown } from "@/components/core/camp-countdown";
-import { AddToEmailList } from "@/components/core/add-to-email-list";
-import { Footer } from "@/components/core/footer";
+import { MeetingsDialog } from "@/components/dialogs/meetings-dialog";
+import { ContactDialog } from "@/components/dialogs/contact-dialog";
+import { Donate001 } from "@/components/forms/donate001";
+import { CampCarousel } from "@/components/sections/camp-carousel";
+import { CampCountdown } from "@/components/sections/camp-countdown";
+import { AddToEmailList } from "@/components/forms/add-to-email-list";
+import { Footer } from "@/components/layout/footer";
 import { ArrowDown, ArrowRight } from "lucide-react";
-import { FadeIn } from "@/components/core/fade-in";
-import { ScrollSlideIn } from "@/components/core/scroll-slide-in";
+import { FadeIn } from "@/components/animations/fade-in";
+import { ScrollSlideIn } from "@/components/animations/scroll-slide-in";
 import Link from "next/link";
 import Image from "next/image";
 

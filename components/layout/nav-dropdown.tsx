@@ -6,7 +6,7 @@ import {
   AnimatedDropdownContent,
   AnimatedDropdownItem,
   AnimatedDropdownTrigger,
-} from "@/components/core/animated-dropdown";
+} from "@/components/layout/animated-dropdown";
 import { ChevronDown,ChevronRight} from "lucide-react";
 import { useRef, useState } from "react";
 

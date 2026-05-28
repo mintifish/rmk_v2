@@ -1,7 +1,7 @@
 "use client";
-import { Footer } from "@/components/core/footer";
+import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
-import { galeryData } from "@/lib/galery-data";
+import { galeryData } from "@/lib/data/galery-data";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";

@@ -10,7 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { LeaderData, contactData } from "@/lib/contact-data";
+import { LeaderData, contactData } from "@/lib/data/contact-data";
 import {
   Mail,
   Phone,

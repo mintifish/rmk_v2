@@ -1,4 +1,13 @@
-export default function Vodstvo({ children }: { children: React.ReactNode }) {
-    return <div>fuck off{children}</div>
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Vodstvo | RMK",
+};
+
+export default function VodstvoLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
 }

@@ -74,7 +74,7 @@ export function CampCountdown() {
             href="https://docs.google.com/forms/d/e/1FAIpQLScODt6gOeX2P2NfuxawZQ_QiUEmpoUItighomgHuo2lFUEzJA/viewform?usp=sf_link"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-12 w-full items-center justify-center rounded-xl px-6 sm:w-auto border-2 border-border bg-primary text-primary-foreground transition-all hover:-translate-y-0.5 hover:bg-primary/90 active:translate-y-0 text-sm font-bold uppercase tracking-wider"
+            className="inline-flex h-12 w-full items-center justify-center rounded-xl px-6 sm:w-auto bg-primary text-primary-foreground transition-all hover:-translate-y-0.5 hover:bg-primary/90 active:translate-y-0 text-sm font-bold uppercase tracking-wider"
           >
             Prijavi se
           </a>

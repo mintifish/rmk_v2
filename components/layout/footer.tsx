@@ -23,7 +23,7 @@ const contact_links = [
 export function Footer() {
   return (
     <div className="flex flex-col w-full">
-      <img src="/art/footer_transition.jpg" alt="footer_transition" />
+      <img src="/art/footer-transition-image.jpg" alt="footer-transition-image" />
       <footer className="bg-primary">
         <div className="flex flex-col items-start justify-between w-full gap-8 p-4 px-4 pb-5 mx-auto md:flex-row md:px-20">
           <div className="flex flex-col items-start w-full gap-4 md:w-auto">
